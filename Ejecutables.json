@@ -8,7 +8,8 @@
         "td": "push tiempos desarrollo"
     }],
     "eclipse": [{
-        "ctrl + shift + z": "compilaras2"
+        "ctrl + shift + z": "compilara as2",
+        "ctrl + shift + r" : "bucar clases"
     }],
     "windows": [{
         "ctrl + n": "ditto"
