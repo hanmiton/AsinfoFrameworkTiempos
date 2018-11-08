@@ -1,0 +1,271 @@
+8:00
+    pasando servicio cobros rest
+
+    ServicioFacturacionAgil(Importante)
+    EndPoint
+        Put http://localhost:8020/AS2DS-PAD/rest/usuariors/login
+        Body
+            {
+                "nombreUsuario" : "WBEDOYA",
+                "clave" : "d27f5287bff0a3c6f74620e0e8b4db7d",
+                "sistema" : "1"
+            } 
+        Post http://localhost:8020/AS2DS-PAD/rest/ventasrs/creacionFacturaAgil
+
+        Header
+            authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJXQkVET1lBIiwicm9sZSI6IkVjb21tZXJjZSIsImV4cCI6MTU0MTYwOTE5NX0.TdLZnwp2pJEgg6-ldCCzeEd60tFodrB8BUZnehuWn3Y
+            content-type: application/json
+            cookie: as2-uuid=80f74079-98eb-4b9c-9d44-c585fa5a7450; as2-uuid=1df24e2e-9b1c-4965-adac-9588efbeba77; as2-uuid=4fb665dc-f009-4bfe-bde3-53d18a1d2618; as2-uuid=115c22f1-a854-41bb-b248-59c8ebb01691
+        Body
+            {
+                "idOrganizacion": "1",
+                "listadoFacturaClienteResponseDto": [
+                    {
+                    "idOrganizacion": "1",
+                    "cliente": {
+                        "ciudad": "MACHALA",
+                        "codigoISOPais": "ECU",
+                        "condicionPago": "0",
+                        "descripcion": "HANMITLON",
+                        "direccion": "URB. LA LUCHA, AV. TELMO SANDOVAL A-8",
+                        "email": "facturacion@consurr7h.com",
+                        "formaPago": "EFEC",
+                        "identificacion": "9999999999999",
+                        "nombre": "CONSUMIDOR FINAL",
+                        "pais": "ECUADOR",
+                        "provincia": "EL ORO",
+                        "telefono": "072985629",
+                        "tipoCliente": "1",
+                        "tipoIdentificacion": "07"
+                    },
+                    "condicionPago": "01",
+                    "descripcion": "PRUEBA",
+                    "direccionFactura": "URB. LA LUCHA, AV. TELMO SANDOVAL A-8",
+                    "documento": " FACTURA ELECTRONICA",
+                    "email": "facturacion@consurr7h.com",
+                    "establecimiento": "001",
+                    "fecha": "06-11-2018",
+                    "fechaVencimiento" : "30-10-2018",
+                    "identificacionCliente": "9999999999999",
+                    "detalleFacturaClienteResponse": [
+                        {
+                        "idProducto" : "-3550",
+                        "idBodega" : "62",
+                        "cantidad": "1.0",
+                        "codigoProducto": "AUXI0093",
+                        "descuento": "0",
+                        "porcentajeDescuento": "0",
+                        "precio": "0.40"
+                        }
+                    ],
+                    "detalleFormaPagoResponseDto": [
+                        {
+                        "bancoOrigen": "PRODUBANCO DE LA PRODUCCION",
+                        "formaPago": "EFEC",
+                        "numeroCuentaBancariaPago": "12040217332 OPEX",
+                        "valor": "0.40"
+                        }
+                    ],
+                    "numero" : "000024419",
+                    "puntoDeVenta" : "004",
+                    "tipoDocumento" : "01"
+                    }
+                ],
+                "indicadorValidar": true
+            }
+        CRACIÓN DE COBROS
+        Post http://localhost:8020/AS2DS-PAD/rest/cobrors/crearCobro
+        Header
+            authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJXQkVET1lBIiwicm9sZSI6IkVjb21tZXJjZSIsImV4cCI6MTU0MTYwOTE5NX0.TdLZnwp2pJEgg6-ldCCzeEd60tFodrB8BUZnehuWn3Y
+            content-type: application/json
+            cookie: as2-uuid=80f74079-98eb-4b9c-9d44-c585fa5a7450; as2-uuid=1df24e2e-9b1c-4965-adac-9588efbeba77; as2-uuid=4fb665dc-f009-4bfe-bde3-53d18a1d2618; as2-uuid=115c22f1-a854-41bb-b248-59c8ebb01691
+        Body
+        {
+            "idCobro": "154270",
+            "idOrganizacion": "1",
+            "idSucursal": "1",
+            "valorTotal" : "0.45",
+            "nombreUsuario": "usuario_anonimo",
+            "idUsuario": "1",
+            "nota": "esto es una prueba",
+            "fecha": "06-11-2018",
+            "idCliente": "76",
+            "idPuntoVenta": "212",
+            "codigoMovil": "234123ds",
+            "listaDetalleCobro": [
+                {
+                "idCuentaPorCobrar": "9143200",
+                "valorCobro" : "0.45"
+                }
+            ],
+            "listaDetalleFormaCobro": [
+                {
+                "idFormaPago": "1",
+                "idCuentaOrganizacion" : "152",
+                "valor" : "0.45"
+                
+                }
+            ]
+        }
+    REVISAR USO DE SWAGGER para la documentacio de la api rest
+
+Estructuras completas dtos
+FacturaCliente
+    [
+        {
+            "succsess": true,
+            "error": null,
+            "response": {
+            "idOrganizacion": 1,
+            "indicadorValidar": 0,
+            "idSucursal": 0,
+            "idFacturaCliente": null,
+            "numero": "000024421",
+            "fecha": "06-11-2018",
+            "direccionFactura": "URB. LA LUCHA, AV. TELMO SANDOVAL A-8",
+            "idEmpresa": null,
+            "idPuntoVenta": null,
+            "idDireccionEmpresa": null,
+            "idDispositivoSincronizacion": null,
+            "descripcion": "PRUEBA",
+            "urlApp": null,
+            "codigoMovil": null,
+            "idMotivoNotaCreditoCliente": null,
+            "idFacturaPadre": null,
+            "indicadorDevolucion": null,
+            "idUsuarioCreacion": null,
+            "nombreUsuarioCreacion": null,
+            "referenciaDocumento": null,
+            "establecimiento": "001",
+            "documento": " FACTURA ELECTRONICA",
+            "tipoDocumento": "01",
+            "puntoDeVenta": "004",
+            "condicionPago": 1,
+            "identificacionCliente": "9999999999999",
+            "email": "facturacion@consurr7h.com",
+            "numeroCuotas": 1,
+            "cliente": {
+            "idCliente": 0,
+            "idEmpresa": null,
+            "idOrganizacion": 0,
+            "idSucursal": 0,
+            "nombreFiscal": null,
+            "nombreComercial": null,
+            "identificacion": "9999999999999",
+            "tipoIdentificacion": "07",
+            "direccion": "URB. LA LUCHA, AV. TELMO SANDOVAL A-8",
+            "idClientePadre": null,
+            "horarioVisita": null,
+            "horarioDespacho": null,
+            "diasVisita": null,
+            "idListaPrecios": null,
+            "idListaDescuentos": null,
+            "codigoSubcliente": null,
+            "nombreSubcliente": null,
+            "email": "facturacion@consurr7h.com",
+            "telefono": "072985629",
+            "codigoISOPais": "ECU",
+            "pais": "ECUADOR",
+            "provincia": "EL ORO",
+            "ciudad": "MACHALA",
+            "activo": true,
+            "idDispositivoSincronizacion": null,
+            "listaDireccionEmpresa": [],
+            "tipoIdentificacionResponse": null,
+            "diasDespacho": null,
+            "excentoImpuestos": null,
+            "clienteBloqueado": false,
+            "identificacionNueva": null,
+            "descripcion": "HANMITLON",
+            "tipoCliente": 1,
+            "formaPago": "EFEC",
+            "hashCode": -1710434580,
+            "nombre": "CONSUMIDOR FINAL",
+            "condicionPago": 0
+            },
+            "fechaVencimiento": "30-10-2018",
+            "totalImpuesto": 0,
+            "totalImporte": 0,
+            "establecimientoModificado": null,
+            "puntoDeVentaModificado": null,
+            "numeroModificado": null,
+            "usuario": null,
+            "origen": null,
+            "detalleFacturaClienteResponse": [
+            {
+            "idDetalleFacturaCliente": 0,
+            "idOrganizacion": 0,
+            "idSucursal": 0,
+            "codigoProducto": "AUXI0093",
+            "idProducto": -3550,
+            "cantidad": 1,
+            "precio": 0.4,
+            "descuento": 0,
+            "descuentoLinea": 0,
+            "porcentajeDescuento": 0,
+            "idDispositivoSincronizacion": null,
+            "idBodega": 62,
+            "idDetalleFacturaClientePadre": null,
+            "hashCode": -1152503481
+            }
+            ],
+            "listaSaldosFacturaResponseDto": [],
+            "detalleFormaPagoResponseDto": [
+            {
+            "numeroCuentaBancariaPago": "12040217332 OPEX",
+            "formaPago": "EFEC",
+            "documentoReferencia": null,
+            "bancoOrigen": "PRODUBANCO DE LA PRODUCCION",
+            "valor": 0.4
+            }
+            ],
+            "hashCode": -1254345476
+            }
+        }
+    ],
+cobro
+{
+    "succsess": true,
+    "error": null,
+    "response": {
+    "idCobro": 154271,
+    "numeroCobro": null,
+    "codigoMovil": "234123ds",
+    "nombreUsuario": "usuario_anonimo",
+    "idUsuario": 1,
+    "idOrganizacion": 1,
+    "idSucursal": 1,
+    "idPuntoVenta": 212,
+    "fecha": "06-11-2018",
+    "idCliente": 76,
+    "valorTotal": 0.45,
+    "nota": "esto es una prueba",
+    "urlApp": null,
+    "idDispositivoSincronizacion": null,
+    "listaDetalleCobro": [
+    {
+    "idCuentaPorCobrar": 9143250,
+    "idDetalleCobro": null,
+    "valorCobro": 0.45
+    }
+    ],
+    "listaDetalleFormaCobro": [
+    {
+    "idCuentaOrganizacion": 152,
+    "idDetalleFormaCobro": null,
+    "idFormaPago": 1,
+    "documentoReferencia": null,
+    "idBancoOrigen": null,
+    "valor": 0.45,
+    "idDispositivoSincronizacion": null,
+    "numeroTarjeta": null,
+    "lote": null,
+    "interes": null,
+    "idTarjetaCredito": null,
+    "idPlanTarjetaCredito": null
+    }
+    ],
+    }
+}
+
+

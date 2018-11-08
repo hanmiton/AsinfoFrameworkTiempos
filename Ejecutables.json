@@ -1,0 +1,16 @@
+{
+    "cmd": [{
+        "dc": "ejecutables",
+        "rc": "advanced rest client",
+        "e": "eclipse",
+        "fd": "folder deployments",
+        "a": "run as2",
+        "td": "push tiempos desarrollo"
+    }],
+    "eclipse": [{
+        "ctrl + shift + z": "compilaras2"
+    }],
+    "windows": [{
+        "ctrl + n": "ditto"
+    }]
+}
